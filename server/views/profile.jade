@@ -1,7 +1,11 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  each p in profile
-    p #{p.firstname}
+html
+  head
+    link(href='/css/layout.css', rel='stylesheet')
+  body
+    block content
+      h1 #{profile.firstname} #{profile.lastname}'s Profile
+      h1 About Me:
+      p #{profile.bio}
+      h1 My Interests:
+      each i in profile.interests
+        p #{i}

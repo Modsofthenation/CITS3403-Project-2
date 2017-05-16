@@ -6,6 +6,7 @@ var schema = new mongoose.Schema(
 			firstname:  String,
 			middlename: String,
 			lastname:   String,
+			bio:        String,
 			interests:   [String],
 			age:        Number,
 			gender:     Boolean

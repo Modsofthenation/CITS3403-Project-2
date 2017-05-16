@@ -9,7 +9,6 @@ router.get('/:username', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log("AAAAAAAAA");
 	ctrlProfile.addProfile(req, res);
 })
 

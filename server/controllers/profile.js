@@ -14,7 +14,7 @@ module.exports.getProfile = function(req, res) {
 			}
 			else {
 				console.log('find complete');
-				res.render('profile', {'profile' : profile});
+				res.render('profile', {'profile' : profile[0]});
 			}
 		}
 	);
@@ -26,6 +26,7 @@ module.exports.addProfile = function(req, res) {
 			firstname:  req.body.firstname,
 			middlename: req.body.middlename,
 			lastname:   req.body.lastname,
+			bio: req.body.bio,
 			//TODO: Loop over interests
 			interests:   req.body.interests,
 			age:        req.body.age,
