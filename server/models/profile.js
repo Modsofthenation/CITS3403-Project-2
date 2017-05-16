@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema(
 		{
-			profileKey: String,
-			firstName:  String,
-			middleName: String,
-			lastName:   String,
-			intersts:   [String],
+			username: String,
+			firstname:  String,
+			middlename: String,
+			lastname:   String,
+			interests:   [String],
 			age:        Number,
 			gender:     Boolean
 		}

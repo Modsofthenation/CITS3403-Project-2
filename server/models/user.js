@@ -5,8 +5,6 @@ var schema = new mongoose.Schema(
 			username:      String,
 			password:      String,
 			email:         String,
-			profileKey:    String,
-			preferenceKey: String
 		}
 	);
 

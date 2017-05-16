@@ -4,8 +4,8 @@ var ctrlUser = require('../controllers/user.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	console.log("AAAA");
-	ctrlUser.userList(req, res);
+  //res.send('respond with a resource');
+  ctrlUser.userList(req, res);
 });
 
 router.post('/', function(req, res, next) {
