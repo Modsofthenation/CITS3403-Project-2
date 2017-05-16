@@ -1,0 +1,22 @@
+/* Author: Damon van der Linde, Student ID: 21506136 
+
+	This is the page specific CSS file for main
+
+*/
+
+img.mainPage{
+	width: 100%;
+	height: 100%;
+	margin-top: 30px;
+	border: none;
+    border-radius: 10px;
+}
+
+#content{
+	background-color: #202120;
+	width: 100%;
+	height: 100%;
+	margin: 20px auto;
+	border: none;
+    border-radius: 10px;
+}
