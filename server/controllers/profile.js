@@ -5,7 +5,6 @@ var Profile = mongoose.model('Profile');
 module.exports.getProfile = function(req, res) {
 	Profile.find({'username': req.params.username}).exec(
 		function(err, profile) {
-			console.log("profile: " + profile);
 			if (err) {
 				res.render('error', {
 					message:err.message,
@@ -13,8 +12,14 @@ module.exports.getProfile = function(req, res) {
 				});
 			}
 			else {
-				console.log('find complete');
-				res.render('profile', {'profile' : profile[0]});
+				if (profile.length > 0) {
+					console.log('find complete');
+					res.render('profile', {'profile' : profile[0]});
+				} else {
+					console.log('no profile found');
+					var error = {message: "Profile not found"};
+					res.render('error', {'error' : error});
+				}
 			}
 		}
 	);
