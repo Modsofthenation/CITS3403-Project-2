@@ -1,11 +1,36 @@
 html
   head
+    title MatchMaker:#{profile.firstname}
+    meta(charset='UTF-8')
     link(href='/css/layout.css', rel='stylesheet')
+    link(href='/css/myaccount.css', rel='stylesheet')
+    script(type='text/javascript', src='/js/script.js')
   body
-    block content
-      h1 #{profile.firstname} #{profile.lastname}'s Profile
-      h1 About Me:
-      p #{profile.bio}
-      h1 My Interests:
-      each i in profile.interests
-        p #{i}
+    
+    header
+      .navigationBarTop
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking Logo')
+        a(href='account.html') Account
+        a(href='matches.html') Matches
+        a(href='about.html') About
+        a(href='main.html') Home
+    
+    #content
+      #yourDetails
+      br
+      br
+      br
+      .innerTopBanner
+        h3 #{profile.firstname} #{profile.lastname}'s Profile
+
+      //PlaceHolder -> Profile Image should be loaded here
+      img#profileImage(src='', width='200', height='200', alt='Your profile Image')
+
+      block content
+        h3 About Me:
+        p.myAccountP #{profile.bio}
+        h3 My Interests:
+        each i in profile.interests
+          p.myAccountP #{i}
+
+          
