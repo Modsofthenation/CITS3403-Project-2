@@ -2,6 +2,7 @@ require('../models/db');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Profile = mongoose.model('Profile');
+var passport = require('passport');
 
 module.exports.userList = index;
 
@@ -22,8 +23,24 @@ function index(req, res) {
 	);
 }
 
+
+
 module.exports.addUser = function(req, res) {
-	//Check username. Call email callback if valid
+	User.register(new User({username: req.body.username, email: req.body.email}),
+		req.body.password,
+		function(err, account) {
+			if (err) {
+				res.render('error', {
+					message:err.message,
+					error: err
+				});
+			} else {
+				passport.authenticate('local')(req, res, function(){
+					res.redirect('/');
+				});
+			}
+		});
+	/*/Check username. Call email callback if valid
 	User.find({username: req.body.username}).exec(
 		function(err, usersFound) {
 			if (err) {
@@ -63,7 +80,8 @@ module.exports.addUser = function(req, res) {
 		);
 	}
 	
-	//Callback for adding the user
+
+	Callback for adding the user
 	var addUser = function() {
 				var newUser = new User ({
 				username:      req.body.username,
@@ -83,5 +101,5 @@ module.exports.addUser = function(req, res) {
 				index(req, res);
 			}
 		});
-	}
+	}*/
 }

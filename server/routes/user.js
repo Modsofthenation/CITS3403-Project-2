@@ -7,8 +7,13 @@ router.get('/', function(req, res, next) {
 	ctrlUser.userList(req, res);
 });
 
-router.post('/', function(req, res, next) {
+//Register new account
+router.post('/register', function(req, res, next) {
 	ctrlUser.addUser(req, res);
-})
+});
+
+router.get('/register', function(req, res, next) {
+	res.render('register');
+});
 
 module.exports = router;
