@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema(
 		{
-			username: String,
-			gender: { type: String, enum: ['male', 'female']},
+			username: {type: String, unique: true},
+			gender: {type: String, enum: ['male', 'female']},
 		}
 	);
 
