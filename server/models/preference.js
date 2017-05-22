@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema(
 		{
 			username: String,
-			gender:   Boolean
+			gender: { type: String, enum: ['male', 'female']},
 		}
 	);
 
