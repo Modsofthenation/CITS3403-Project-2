@@ -9,7 +9,7 @@ var schema = new mongoose.Schema(
 			bio:        String,
 			interests:   [String],
 			age:        Number,
-			gender:     Boolean
+			gender:     {type: String, enum: ['male', 'female']}
 		}
 	);
 
