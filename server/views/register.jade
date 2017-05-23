@@ -9,11 +9,17 @@ html
 
     header
       .navigationBarTop
-        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking Logo')
-        a(href='/user') Account
-        a(href='/matches') Matches
-        a(href='/about.html') About
-        a(href='/main.html') Home
+        img(src='images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
+        if (user)
+          //TODO Link to account settings
+          a(href='/logout') Logout
+          a(href='/') #{user.username} 
+        if (!user)
+          a(href='/login') Login
+          a(href='/register') Register
+        a(href='matches.html') Matches
+        a(href='/about') About
+        a(href='/') Home
 
     #content
       .container
