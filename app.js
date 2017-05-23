@@ -8,7 +8,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./server/routes/index');
-var users = require('./server/routes/user');
 var profile = require('./server/routes/profile');
 var preference = require('./server/routes/preference');
 
@@ -37,7 +36,6 @@ app.use(passport.session());
 
 //Routes setup
 app.use('/', index);
-app.use('/user', users);
 app.use('/profile', profile);
 app.use('/preference', preference);
 app.use(express.static('/public'));

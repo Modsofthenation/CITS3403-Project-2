@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= Login
+  body
+    .container
+      if(!user)
+        h1 Login Page
+        br
+        form(action="/login", method="post")
+          label(for='username') Enter Username:
+          input(id='username', type='text', name='username')
+          label(for='password') Enter Password:
+          input(id='password', type='password', name='password')
+          input(type='submit', value='Login')
+      if(user)
+        h1 Login Page
+        br
+        p You are already logged in
+        a(href="/logout") Logout
