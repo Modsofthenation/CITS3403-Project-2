@@ -5,7 +5,11 @@ var passport = require('passport')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.redirect('/main.html');
+	res.render('index', { user: req.user });
+});
+
+router.get('/about', function(req, res, next) {
+	res.render('about', { user: req.user });
 });
 
 //Register new account
