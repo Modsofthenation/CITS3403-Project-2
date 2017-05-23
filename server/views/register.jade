@@ -15,12 +15,15 @@ html
         a(href='/about.html') About
         a(href='/main.html') Home
 
-    .container
-      h1 Registration Page
-      br
-      form(action="/user/register", method="post")
-        label(for='username') Enter Username:
-        input(id='username', type='text', name='username')
-        label(for='password') Enter Password:
-        input(id='password', type='password', name='password')
-        input(type='submit', value='Register')
+    #content
+      .container
+        br
+        br
+        h3 Registration Page
+        br
+        form(action="/user/register", method="post")
+          label(for='username') Enter Username:
+          input(id='username', type='text', name='username')
+          label(for='password') Enter Password:
+          input(id='password', type='password', name='password')
+          input(type='submit', value='Register')
