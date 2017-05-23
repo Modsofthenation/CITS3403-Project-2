@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= Register
+    link(rel='stylesheet', href='/css/create_profile.css')
+    link(href='/css/layout.css', rel='stylesheet')
+    script(type='text/javascript', src='/js/script.js')
+  body
+
+    header
+      .navigationBarTop
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking Logo')
+        a(href='/user') Account
+        a(href='/matches') Matches
+        a(href='/about.html') About
+        a(href='/main.html') Home
+
+    #content
+      .container
+        br
+        br
+        h3 Registration Page
+        br
+        form(action="/user/register", method="post")
+          label(for='username') Enter Username:
+          input(id='username', type='text', name='username')
+          label(for='password') Enter Password:
+          input(id='password', type='password', name='password')
+          input(type='submit', value='Register')
