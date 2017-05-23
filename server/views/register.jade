@@ -2,8 +2,19 @@ doctype html
 html
   head
     title= Register
-    //link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/create_profile.css')
+    link(href='/css/layout.css', rel='stylesheet')
+    script(type='text/javascript', src='/js/script.js')
   body
+
+    header
+      .navigationBarTop
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking Logo')
+        a(href='/user') Account
+        a(href='/matches') Matches
+        a(href='/about.html') About
+        a(href='/main.html') Home
+
     .container
       h1 Registration Page
       br
