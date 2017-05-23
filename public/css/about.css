@@ -21,7 +21,7 @@ p.contentText{
 #content{
 	background-color: #202120;
 	width: 90%;
-	height: 1000px;
+	/*height: 700px;*/
 	margin: 10px auto;
 	border: none;
     border-radius: 10px;

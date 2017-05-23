@@ -39,31 +39,31 @@ function checkPageAndAdjust()
 		if(window.innerWidth > 1000)
 		{
 			mainContentArea.style.width = "70%";
-			mainContentArea.style.height = "1900px";
+			mainContentArea.style.height = "1000px";
 		}
 		else if(window.innerWidth < 610 && window.innerWidth > 450 )
 		{
 			mainContentArea.style.marginTop = "70px";
 			mainContentArea.style.width = "90%";
-			mainContentArea.style.height = "2200px";
+			mainContentArea.style.height = "800px";
 		}
 		else if(window.innerWidth < 450 && window.innerWidth > 350 )
 		{
 			mainContentArea.style.marginTop = "70px";
 			mainContentArea.style.width = "90%";
-			mainContentArea.style.height = "2400px";
+			mainContentArea.style.height = "1000px";
 		}
 		else if(window.innerWidth < 350)
 		{
 			mainContentArea.style.marginTop = "140px";
 			mainContentArea.style.width = "90%";
-			mainContentArea.style.height = "2500px";
+			mainContentArea.style.height = "2000px";
 		}
 		else
 		{
 			mainContentArea.style.marginTop = "0px";
 			mainContentArea.style.width = "90%";
-			mainContentArea.style.height = "1900px";
+			mainContentArea.style.height = "1000px";
 		}	
 	}
 	else if(document.URL.search("account.html") > -1)
