@@ -24,21 +24,7 @@ function index(req, res) {
 }
 
 module.exports.addUser = function(req, res) {
-	User.register(new User({username: req.body.username, email: req.body.email}),
-		req.body.password,
-		function(err, account) {
-			if (err) {
-				res.render('error', {
-					message:err.message,
-					error: err
-				});
-			} else {
-				passport.authenticate('local')(req, res, function(){
-					res.redirect('/');
-				});
-			}
-		});
-	/*/Check username. Call email callback if valid
+	//Check username. Call email callback if valid
 	User.find({username: req.body.username}).exec(
 		function(err, usersFound) {
 			if (err) {
@@ -48,8 +34,7 @@ module.exports.addUser = function(req, res) {
 				});
 			} else {
 				if (usersFound.length > 0) {
-					res.setHeader('Content-Type', 'application/json');
-    				res.send(JSON.stringify({ message : "Username taken"}));
+    				res.render('register', { form : { email: req.body.email}, error: "Username taken" });
 				} else {
 					checkEmail();
 				}
@@ -68,8 +53,7 @@ module.exports.addUser = function(req, res) {
 					});
 				} else {
 					if (usersFound.length > 0) {
-						res.setHeader('Content-Type', 'application/json');
-    					res.send(JSON.stringify({ message : "Email taken"}));
+    					res.render('register', { form : { username: req.body.username}, error: "Email address taken" });
     				} else {
     					addUser();
     				}
@@ -78,26 +62,21 @@ module.exports.addUser = function(req, res) {
 		);
 	}
 	
-
-	Callback for adding the user
+	//Callback for adding the user
 	var addUser = function() {
-				var newUser = new User ({
-				username:      req.body.username,
-				password:      req.body.password,
-				email:         req.body.email,
-		});
-		newUser.save(function(err, data){
-			if(err) {
-				console.log(err);
-				res.status(500);
-				res.render('error', {
-					message:err.message,
-					error:err
-				});
-			} else {
-				console.log(data, 'saved');
-				index(req, res);
-			}
-		});
-	}*/
+		User.register(new User({username: req.body.username, email: req.body.email}),
+			req.body.password,
+			function(err, account) {
+				if (err) {
+					res.render('error', {
+						message:err.message,
+						error: err
+					});
+				} else {
+					passport.authenticate('local')(req, res, function(){
+						res.redirect('/');
+					});
+				}
+			});
+	}
 }
