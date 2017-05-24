@@ -11,6 +11,7 @@ window.addEventListener("resize", checkPageAndAdjust);
 function checkPageAndAdjust()
 {
 	mainContentArea = document.getElementById('content');
+	innerMainContentArea = document.getElementById('innerContent');
 	
 	if(document.URL.search("index.html") > -1)
 	{
@@ -71,21 +72,25 @@ function checkPageAndAdjust()
 		if(window.innerWidth > 1000)
 		{
 			mainContentArea.style.width = "70%";
+			innerMainContentArea.style.width = "60%";
 		}
 		else if(window.innerWidth < 610 && window.innerWidth > 350 )
 		{
 			mainContentArea.style.marginTop = "110px";
 			mainContentArea.style.width = "90%";
+			//innerMainContentArea.style.width = "90%";
 		}
 		else if(window.innerWidth < 350)
 		{
 			mainContentArea.style.marginTop = "180px";
 			mainContentArea.style.width = "90%";
+			//innerMainContentArea.style.width = "90%";
 		}
 		else
 		{
 			mainContentArea.style.marginTop = "40px";
 			mainContentArea.style.width = "90%";
+			innerMainContentArea.style.width = "90%";
 		}
 	}
 	else if(document.URL.search("create_profile.html") > -1)
