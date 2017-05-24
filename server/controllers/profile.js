@@ -97,7 +97,7 @@ module.exports.addProfile = function(req, res) {
 				});
 			} else {
 				console.log(data, 'saved');
-				res.render('profile', {'user': req.user, 'profile' : newProfile});
+				res.redirect("/profile/");
 			}
 		});
 	}
