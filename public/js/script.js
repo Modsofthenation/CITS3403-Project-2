@@ -66,7 +66,7 @@ function checkPageAndAdjust()
 			mainContentArea.style.height = "1000px";
 		}	
 	}
-	else if(document.URL.search("account.html") > -1)
+	else if(document.URL.search("login") > -1 || document.URL.search("register") > -1)
 	{
 		if(window.innerWidth > 1000)
 		{
