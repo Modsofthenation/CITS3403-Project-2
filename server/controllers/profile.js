@@ -82,7 +82,7 @@ module.exports.addProfile = function(req, res) {
 				lastname:   req.body.lastname,
 				bio: req.body.bio,
 				//TODO: Handle interests
-				//interests:   req.body.interests,
+				interests:   req.body.interests,
 				age:        req.body.age,
 				gender:     req.body.gender
 		});
