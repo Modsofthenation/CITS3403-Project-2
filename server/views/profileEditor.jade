@@ -1,0 +1,91 @@
+doctype html
+html
+  head
+    title MatchMaker: Profile Editor
+    link(rel='stylesheet', href='/css/create_profile.css')
+    link(href='/css/layout.css', rel='stylesheet')
+    script(type='text/javascript', src='/js/script.js')
+  body
+
+    header
+      .navigationBarTop
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
+        if (user)
+          a(href='/logout') Logout
+          a(href='/profile') #{user.username} 
+        if (!user)
+          a(href='/login') Login
+          a(href='/register') Register
+        a(href='matches.html') Matches
+        a(href='/about') About
+        a(href='/') Home
+
+    #content
+      #innerContent
+        .container
+          br
+          br
+          h3 Profile Editor
+          br
+          form(id='profile', action="/profile", method="post")
+            label(for='firstname') First Name:
+            if (profile && profile.firstname) 
+              input(type='text', id='firstname', name='firstname', value=profile.firstname)
+            else
+              input(type='text', id='firstname', name='firstname')
+
+            label(for='middlename') Middle Name:
+            if (profile && profile.middlename) 
+              input(type='text', id='middlename', name='middlename', value=profile.middlename)
+            else
+              input(type='text', id='middlename', name='middlename')
+
+            label(for='lastname') Last Name:
+            if (profile && profile.lastname) 
+              input(type='text', id='lastname', name='lastname', value=profile.lastname)
+            else
+              input(type='text', id='lastname', name='lastname')
+
+            label(for='bio') About Me:
+            br
+            textarea(form='profile', id='bio', name='bio')
+              if (profile && profile.bio) 
+                |  #{profile.bio} 
+            br
+
+            //TODO Add a variable number of interests
+
+            label(for='age') Age:
+            if (profile && profile.age)
+              input(type='number', id='age', name='age', value=profile.age)
+            else
+              input(type='number', id='age', name='age')
+            
+            label(for='gender') Gender:
+            br
+            select(name='gender', id='gender')
+              option(value='') Please Choose...
+              if (profile && profile.gender == 'male')
+                option(value='male', selected='selected') Male
+              else
+                option(value='male') Male
+              if (profile && profile.gender == 'female')
+                option(value='female', selected='selected') Female
+              else
+                option(value='female') Female
+
+            br
+            br
+            input(type='submit', value='Submit')
+
+    footer
+      p Created by Damon van der Linde, Student ID: 21506136, Student ID: 21506136 and Robert Fernandez, Student ID: 21709566
+      p
+        | Contact information: 
+        a(href='mailto:matchmaking@support.com.au')
+          | matchmaking@support.com.au
+      p Webpage was last modified : 
+      p#displayLastModifiedHere
+      p
+        a(href='http://jigsaw.w3.org/css-validator/check/referer')
+          img(style='border:0;width:88px;height:31px', src='http://jigsaw.w3.org/css-validator/images/vcss', alt='Valid CSS!')

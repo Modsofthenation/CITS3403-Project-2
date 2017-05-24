@@ -4,25 +4,6 @@ var User = mongoose.model('User');
 var Profile = mongoose.model('Profile');
 var passport = require('passport');
 
-module.exports.userList = index;
-
-function index(req, res) {
-	User.find().exec(
-		function(err, userslist) {
-			if (err) {
-				res.render('error', {
-					message:err.message,
-					error: err
-				});
-			}
-			else {
-				console.log('find complete');
-				res.render('index', {'users':userslist});
-			}
-		}
-	);
-}
-
 module.exports.addUser = function(req, res) {
 	//Check username. Call email callback if valid
 	User.find({username: req.body.username}).exec(
@@ -34,7 +15,7 @@ module.exports.addUser = function(req, res) {
 				});
 			} else {
 				if (usersFound.length > 0) {
-    				res.render('register', { form : { email: req.body.email}, error: "Username taken" });
+    				res.render('register', { user: req.user, form : { email: req.body.email}, error: "Username taken" });
 				} else {
 					checkEmail();
 				}
@@ -53,7 +34,7 @@ module.exports.addUser = function(req, res) {
 					});
 				} else {
 					if (usersFound.length > 0) {
-    					res.render('register', { form : { username: req.body.username}, error: "Email address taken" });
+    					res.render('register', { user:req.user, form : { username: req.body.username}, error: "Email address taken" });
     				} else {
     					addUser();
     				}
@@ -74,7 +55,7 @@ module.exports.addUser = function(req, res) {
 					});
 				} else {
 					passport.authenticate('local')(req, res, function(){
-						res.redirect('/');
+						res.redirect('/profile/edit');
 					});
 				}
 			});

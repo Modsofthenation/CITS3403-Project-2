@@ -9,11 +9,10 @@ html
 
     header
       .navigationBarTop
-        img(src='images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
         if (user)
-          //TODO Link to account settings
           a(href='/logout') Logout
-          a(href='/') #{user.username} 
+          a(href='/profile') #{user.username} 
         if (!user)
           a(href='/login') Login
           a(href='/register') Register

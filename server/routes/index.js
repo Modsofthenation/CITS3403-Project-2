@@ -19,7 +19,7 @@ router.post('/register', function(req, res, next) {
 
 //Registration page
 router.get('/register', function(req, res, next) {
-	res.render('register');
+	res.render('register', { user: req.user });
 });
 
 //Login page

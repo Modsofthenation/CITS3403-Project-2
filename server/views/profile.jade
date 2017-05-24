@@ -9,11 +9,16 @@ html
     
     header
       .navigationBarTop
-        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking Logo')
-        a(href='/user') Account
-        a(href='/matches') Matches
-        a(href='/about.html') About
-        a(href='/main.html') Home
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
+        if (user)
+          a(href='/logout') Logout
+          a(href='/profile') #{user.username} 
+        if (!user)
+          a(href='/login') Login
+          a(href='/register') Register
+        a(href='matches.html') Matches
+        a(href='/about') About
+        a(href='/') Home
     
     #content
       #yourDetails
@@ -25,6 +30,9 @@ html
 
       //PlaceHolder -> Profile Image should be loaded here
       img#profileImage(src='', width='200', height='200', alt='Your profile Image')
+      
+      if(user && user.username == profile.username)
+        a(href='/profile/edit') Edit
 
       block content
         h3 About Me:
