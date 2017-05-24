@@ -36,11 +36,11 @@ block content
           else
             input(type='text', id='lastname', name='lastname')
 
-          label(for='bio') About Me:
+          label(for='bio') About Me (Max. 2000 Characters):
           br
-          textarea(form='profile', id='bio', name='bio')
+          textarea(form='profile', id='bio', name='bio', maxlength=2000, rows=9)
             if (profile && profile.bio) 
-              |  #{profile.bio} 
+              |#{profile.bio} 
           br
 
           label(for='age') Age:
@@ -62,6 +62,7 @@ block content
             else
               option(value='female') Female
 
+          label() Interests:
           #interests
             if (profile && profile.interests)
               each i in profile.interests
@@ -69,9 +70,6 @@ block content
             else
               input(type='text', form='profile', name='interests')
 
-
-          br
-          br
           input(type='button', value="Add Interest", onclick='addInterest()')
           input(type='button', value="Remove Interest", onclick='removeInterest()')
           input(type='submit', value='Submit')
