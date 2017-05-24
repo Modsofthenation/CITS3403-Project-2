@@ -22,24 +22,25 @@ html
         a(href='/') Home
 
     #content
-      .container
-        br
-        br
-        h3 Registration Page
-        br
-        form(action="/register", method="post")
-          label(for='username') Enter Username:
-          if (form && form.username)
-            input(id='username', type='text', name='username', value=form.username)
-          else
-            input(id='username', type='text', name='username')         
-          label(for='email') Enter Email Address:
-          if (form && form.email)
-            input(id='email', type='email', name='email', value=form.email)
-          else
-            input(id='email', type='email', name='email')
-          label(for='password') Enter Password:
-          input(id='password', type='password', name='password')
-          input(type='submit', value='Register')
-          if (error)
-            p #{error}
+      #innerContent
+        .container
+          br
+          br
+          h3 Registration Page
+          br
+          form(action="/register", method="post")
+            label(for='username') Enter Username:
+            if (form && form.username)
+              input(id='username', type='text', name='username', value=form.username)
+            else
+              input(id='username', type='text', name='username')         
+            label(for='email') Enter Email Address:
+            if (form && form.email)
+              input(id='email', type='email', name='email', value=form.email)
+            else
+              input(id='email', type='email', name='email')
+            label(for='password') Enter Password:
+            input(id='password', type='password', name='password')
+            input(type='submit', value='Register')
+            if (error)
+              p #{error}
