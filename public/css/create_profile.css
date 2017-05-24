@@ -18,6 +18,11 @@
 	margin: 40px auto;
 }
 
+#innerContent{
+	width: 80%;
+	margin: auto;
+}
+
 #content{
 	width: 90%;
 	margin: 40px auto;
