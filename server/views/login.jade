@@ -1,53 +1,27 @@
-doctype html
-html
-  head
-    title MatchMaker:Login
-    link(rel='stylesheet', href='/css/create_profile.css')
-    link(href='/css/layout.css', rel='stylesheet')
-    script(type='text/javascript', src='/js/script.js')
-  body
+extends layout
+block head
+  title MatchMaker:Login
+  link(rel='stylesheet', href='/css/create_profile.css')
+  link(href='/css/layout.css', rel='stylesheet')
+  script(type='text/javascript', src='/js/script.js')
 
-    header
-      .navigationBarTop
-        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
-        if (user)
-          a(href='/logout') Logout
-          a(href='/profile') #{user.username} 
-        if (!user)
-          a(href='/login') Login
-          a(href='/register') Register
-        a(href='matches.html') Matches
-        a(href='/about') About
-        a(href='/') Home
-
-    #content
-      #innerContent
-        .container
-          if(!user)
-            br
-            br
-            h3 Login Page
-            br
-            form(action="/login", method="post")
-              label(for='username') Enter Username:
-              input(id='username', type='text', name='username')
-              label(for='password') Enter Password:
-              input(id='password', type='password', name='password')
-              input(type='submit', value='Login')
-          if(user)
-            h1 Login Page
-            br
-            p You are already logged in as #{user.username}
-            a(href="/logout") Logout
-
-    footer
-      p Created by Damon van der Linde, Student ID: 21506136, Student ID: 21506136 and Robert Fernandez, Student ID: 21709566
-      p
-        | Contact information: 
-        a(href='mailto:matchmaking@support.com.au')
-          | matchmaking@support.com.au
-      p Webpage was last modified : 
-      p#displayLastModifiedHere
-      p
-        a(href='http://jigsaw.w3.org/css-validator/check/referer')
-          img(style='border:0;width:88px;height:31px', src='http://jigsaw.w3.org/css-validator/images/vcss', alt='Valid CSS!')
+block content
+  #content
+    #innerContent
+      .container
+        if(!user)
+          br
+          br
+          h3 Login Page
+          br
+          form(action="/login", method="post")
+            label(for='username') Enter Username:
+            input(id='username', type='text', name='username')
+            label(for='password') Enter Password:
+            input(id='password', type='password', name='password')
+            input(type='submit', value='Login')
+        if(user)
+          h1 Login Page
+          br
+          p You are already logged in as #{user.username}
+          a(href="/logout") Logout

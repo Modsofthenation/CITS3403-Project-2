@@ -1,7 +1,30 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    block head
   body
+    header
+      .navigationBarTop
+        img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
+        if (user)
+          a(href='/logout') Logout
+          a(href='/profile') #{user.username} 
+        if (!user)
+          a(href='/login') Login
+          a(href='/register') Register
+        a(href='matches.html') Matches
+        a(href='/about') About
+        a(href='/') Home
     block content
+
+    footer
+      p Created by Damon van der Linde, Student ID: 21506136, Student ID: 21506136 and Robert Fernandez, Student ID: 21709566
+      p
+        | Contact information: 
+        a(href='mailto:matchmaking@support.com.au')
+          | matchmaking@support.com.au
+      p Webpage was last modified : 
+      p#displayLastModifiedHere
+      p
+        a(href='http://jigsaw.w3.org/css-validator/check/referer')
+          img(style='border:0;width:88px;height:31px', src='http://jigsaw.w3.org/css-validator/images/vcss', alt='Valid CSS!')  
