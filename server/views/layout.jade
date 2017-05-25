@@ -9,6 +9,7 @@ html
         if (user)
           a(href='/logout') Logout
           a(href='/profile') #{user.username} 
+          a(href='/message') Messages
         if (!user)
           a(href='/login') Login
           a(href='/register') Register

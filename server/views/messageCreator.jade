@@ -1,0 +1,26 @@
+extends layout
+
+block head
+  title MatchMaker: Send Message
+  link(rel='stylesheet', href='/css/create_profile.css')
+  link(href='/css/layout.css', rel='stylesheet')
+  script(type='text/javascript', src='/js/script.js')
+  script(type='text/javascript', src='/js/profileEditor.js')
+
+block content
+  #content
+    #innerContent
+      .container
+        br
+        br
+        h3 Send Message to #{destination}
+        br
+
+        //Post form to this page
+        form(id='message', method="post")
+          label(for='content') Enter Message:
+          br
+          textarea(form='message', id='content', name='content', rows=9)
+          br
+
+          input(type='submit', value='Send Message')

@@ -34,3 +34,4 @@ process.on('SIGTERM', function() {
 require('./preference.js');
 require('./profile.js');
 require('./user.js');
+require('./message.js');

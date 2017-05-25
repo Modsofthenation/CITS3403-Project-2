@@ -21,6 +21,9 @@ block content
     if(user && user.username == profile.username)
       a(href='/profile/edit') Edit
 
+    if(user)
+      a(href='/message/' + profile.username) Message
+
     h3 About Me:
     p.myAccountP #{profile.bio}
     h3 My Interests:

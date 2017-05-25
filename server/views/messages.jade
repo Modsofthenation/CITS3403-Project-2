@@ -1,0 +1,21 @@
+extends layout
+
+block head
+  title MatchMaker: Messages
+  link(type='text/css', rel='stylesheet', href='css/layout.css')
+  script(type='text/javascript', src='js/script.js')
+
+block content
+  #content
+    #innerContent
+      .container
+        br
+        br
+        h3 Messages
+        br
+        if (!messages)
+          p No messages found
+        else
+          //Render messages here 
+          each m in messages
+            p #{m.content}
