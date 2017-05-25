@@ -36,6 +36,17 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 router.get('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/');
-})
+});
+
+router.get('/user', function(req, res) {
+	if (!req.user)
+		res.redirect('/login');
+	else
+		res.render('userSettings', { user: req.user });
+});
+
+router.post('/user', function(req,res) {
+	ctrlUser.updateUser(req, res);
+});
 
 module.exports = router;

@@ -61,3 +61,39 @@ module.exports.addUser = function(req, res) {
 			});
 	}
 }
+
+module.exports.updateUser = function(req, res) {
+	if (!req.user)
+		res.redirect('/login');
+	else { 
+		updatePassword(req, res);
+		updateEmail(req, res);
+	}	
+}
+
+function updatePassword(req, res) {
+	//Find user
+	User.findByUsername(req.user.username).then(function(user) {
+		user.setPassword(req.body.password, function() {
+			user.save();
+		});
+	});
+}
+
+function updateEmail(req, res) {
+	newEmail = req.body.email;
+	User.findOne({user: req.body.username}, function(err, found) {
+		if (err) {
+			res.render('error', {
+				message:err.message,
+				error: err
+			});
+		} else {
+			found.email = newEmail;
+			found.save( function(err, newUser) {
+				res.render('userSettings', {user: newUser});
+			});
+		}
+	});
+}
+

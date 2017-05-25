@@ -8,7 +8,8 @@ html
         img(src='/images/ml_adj.png', height='60', width='250', alt='Matchmaking logo')
         if (user)
           a(href='/logout') Logout
-          a(href='/profile') #{user.username} 
+          a(href='/profile') My Profile
+          a(href='/user') My Settings
           a(href='/message') Inbox
         if (!user)
           a(href='/login') Login
