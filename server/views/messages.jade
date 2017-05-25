@@ -1,8 +1,9 @@
 extends layout
 
 block head
-  title MatchMaker: Messages
+  title MatchMaker: Inbox
   link(type='text/css', rel='stylesheet', href='css/layout.css')
+  link(type='text/css', rel='stylesheet', href='css/messages.css')
   script(type='text/javascript', src='js/script.js')
 
 block content
@@ -11,11 +12,15 @@ block content
       .container
         br
         br
-        h3 Messages
+        h3 Inbox
         br
         if (!messages)
           p No messages found
         else
           //Render messages here 
           each m in messages
-            p #{m.content}
+            .messageContainer
+              p.title From: #{m.sentUsername}
+              p.message #{m.content}
+              .reply
+                a(href='/message/' + m.sentUsername) Reply
