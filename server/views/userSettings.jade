@@ -1,10 +1,10 @@
 extends layout
 block head
-  title MatchMaker:Register
+  title MatchMaker: User Settings
   link(rel='stylesheet', href='/css/create_profile.css')
   link(href='/css/layout.css', rel='stylesheet')
   script(type='text/javascript', src='/js/script.js')
-  script(type='text/javascript', src='/js/userSettings.js')
+  script(type='text/javascript', src='/js/register.js')
 
 block content
   #content
@@ -24,7 +24,7 @@ block content
           label(for='password2') Reenter New Password:
           input(id='password2', type='password')
           
-          input(type='submit', value='Update')
+          input(type='submit', onclick='return validateUserSettings()', value='Update')
           if (error)
             p(id='errobox') #{error}
           else

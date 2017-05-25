@@ -6,6 +6,12 @@ function validate() {
 		     checkPasswords() );
 }
 
+function validateUserSettings() {
+	var errorbox = document.getElementById("errorbox");
+	errorbox.innerHTML = "";
+	return (checkEmail() && checkPasswords());
+}
+
 function checkUsername() {
 	var username = document.getElementById("username");
 	console.log(username);
