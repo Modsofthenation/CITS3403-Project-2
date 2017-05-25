@@ -4,6 +4,7 @@ block head
   link(rel='stylesheet', href='/css/create_profile.css')
   link(href='/css/layout.css', rel='stylesheet')
   script(type='text/javascript', src='/js/script.js')
+  script(type='text/javascript', src='/js/register.js')
 
 block content
   #content
@@ -14,18 +15,27 @@ block content
         h3 Registration Page
         br
         form(action="/register", method="post")
+
           label(for='username') Enter Username:
           if (form && form.username)
             input(id='username', type='text', name='username', value=form.username)
           else
-            input(id='username', type='text', name='username')         
+            input(id='username', type='text', name='username')   
+
           label(for='email') Enter Email Address:
           if (form && form.email)
             input(id='email', type='email', name='email', value=form.email)
           else
             input(id='email', type='email', name='email')
-          label(for='password') Enter Password:
-          input(id='password', type='password', name='password')
-          input(type='submit', value='Register')
+
+          label(for='password1') Enter Password:
+          input(id='password1', type='password', name='password')
+
+          label(for='password2') Reenter Password:
+          input(id='password2', type='password')
+          
+          input(type='submit', onclick='return validate()', value='Register')
           if (error)
-            p #{error}
+            p(id='errobox') #{error}
+          else
+            p(id='errorbox')
