@@ -4,6 +4,7 @@ block head
   link(rel='stylesheet', href='/css/create_profile.css')
   link(href='/css/layout.css', rel='stylesheet')
   script(type='text/javascript', src='/js/script.js')
+  script(type='text/javascript', src='/js/login.js')
 
 block content
   #content
@@ -18,7 +19,8 @@ block content
             input(id='username', type='text', name='username')
             label(for='password') Enter Password:
             input(id='password', type='password', name='password')
-            input(type='submit', value='Login')
+            input(type='submit', value='Login', onclick='return validate()')
         if(user)
           p You are already logged in as #{user.username}
           a(href="/logout") Logout
+        p(id="errorbox")
