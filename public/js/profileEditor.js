@@ -50,10 +50,11 @@ function checkInterests() {
 	var valid = true;
 	for (i=0; i<interests.length; i++) {
 		interests[i].style.border = "";
-		if (interests[i].value == "")
+		if (interests[i].value == "") {
 			document.getElementById("errorbox").innerHTML = "Please fill in the red fields";
 			interests[i].style.border = "2px solid red";
 			valid = false;
+		}
 	}
 	return valid;
 }
