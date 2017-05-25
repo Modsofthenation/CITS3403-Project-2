@@ -72,3 +72,9 @@ div.navigationBarTop a:hover {
     background-color: #bfbfbf;
     color: black;
 }
+
+#errorbox{
+    width: 100%;
+    text-align: center;
+    color: red;
+}
