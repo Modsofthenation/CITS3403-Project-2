@@ -20,3 +20,40 @@ function removeInterest() {
 	}
 	return false;
 }
+
+function validate() {
+	document.getElementById("errorbox").innerHTML = "";
+	return validateInput(document.getElementById("firstname")) &&
+	       validateInput(document.getElementById("lastname")) &&
+	       validateInput(document.getElementById("bio")) &&
+	       validateInput(document.getElementById("age")) &&
+	       validateInput(document.getElementById("gender"))  &&
+	       checkInterests();
+}
+
+function checkForm() {
+}
+
+function validateInput(input) {
+	input.style.border = "";
+	if (input.value == "") {
+		document.getElementById("errorbox").innerHTML = "Please fill in the red fields";
+		valid = false;
+		input.focus;
+		input.style.border = "2px solid red";
+	}
+	return true;
+}
+
+function checkInterests() {
+	var interests = document.getElementById("interests").children;
+	var valid = true;
+	for (i=0; i<interests.length; i++) {
+		interests[i].style.border = "";
+		if (interests[i].value == "")
+			document.getElementById("errorbox").innerHTML = "Please fill in the red fields";
+			interests[i].style.border = "2px solid red";
+			valid = false;
+	}
+	return valid;
+}

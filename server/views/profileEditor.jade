@@ -72,4 +72,5 @@ block content
 
           input(type='button', value="Add Interest", onclick='addInterest()')
           input(type='button', value="Remove Interest", onclick='removeInterest()')
-          input(type='submit', value='Submit')
+          input(type='submit', onclick='return validate()', value='Submit')
+          p(id='errorbox')

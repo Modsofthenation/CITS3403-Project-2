@@ -5,7 +5,7 @@ block head
   link(rel='stylesheet', href='/css/create_profile.css')
   link(href='/css/layout.css', rel='stylesheet')
   script(type='text/javascript', src='/js/script.js')
-  script(type='text/javascript', src='/js/profileEditor.js')
+  script(type='text/javascript', src='/js/messageCreator.js')
 
 block content
   #content
@@ -23,4 +23,5 @@ block content
           textarea(form='profile', id='messagebox', name='content', rows=9)
           br
 
-          input(type='submit', value='Send Message')
+          input(type='submit', onclick='return validate()', value='Send Message')
+          p.err(id='errorbox')

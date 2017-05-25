@@ -90,3 +90,9 @@ h3{
 	color: #9b9b9b;
 	font-family: "Arial", Helvetica, sans-serif; 
 }
+
+#errorbox{
+	width: 100%;
+	text-align: center;
+	color: red;
+}
