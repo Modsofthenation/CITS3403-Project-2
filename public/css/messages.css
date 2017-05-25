@@ -25,9 +25,9 @@ h3 {
 }
 
 .messageContainer {
-	width: 80%;
+	width: 100%;
 	background-color: grey;
-	margin: 0 10%;
+	margin: 0%;
 	border-radius: 5px;
 }
 
