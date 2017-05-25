@@ -21,12 +21,12 @@ function checkPageAndAdjust()
 		}
 		else if(window.innerWidth < 610 && window.innerWidth > 350 )
 		{
-			mainContentArea.style.marginTop = "70px";
+			mainContentArea.style.marginTop = "100px";
 			mainContentArea.style.width = "90%";
 		}
 		else if(window.innerWidth < 350)
 		{
-			mainContentArea.style.marginTop = "140px";
+			mainContentArea.style.marginTop = "180px";
 			mainContentArea.style.width = "90%";
 		}
 		else
