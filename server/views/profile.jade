@@ -8,24 +8,33 @@ block head
 
 block content    
   #content
-    #yourDetails
-    br
-    br
-    br
-    .innerTopBanner
-      h3 #{profile.firstname} #{profile.lastname}'s Profile
+    #innerContent
+      #yourDetails
+      br
+      br
+      br
+      .innerTopBanner
+        h3 #{profile.firstname} #{profile.lastname}'s Profile
 
-    //PlaceHolder -> Profile Image should be loaded here
-    img#profileImage(src='', width='200', height='200', alt='Your profile Image')
-    
-    if(user && user.username == profile.username)
-      a(href='/profile/edit') Edit
+      //PlaceHolder -> Profile Image should be loaded here
+      img#profileImage(src='', width='200', height='200', alt='Your profile Image')
+      
+      br
 
-    if(user)
-      a(href='/message/' + profile.username) Message
+      h3.center About Me:
+      p.myAccountP #{profile.bio}
+      h3.center My Interests:
+      each i in profile.interests
+        p.myAccountP #{i}
 
-    h3 About Me:
-    p.myAccountP #{profile.bio}
-    h3 My Interests:
-    each i in profile.interests
-      p.myAccountP #{i}
+
+      if(user && user.username == profile.username)
+        a(href='/profile/edit') 
+          button Edit Profile Settings
+
+      br
+      br
+
+      if(user)
+        a(href='/message/' + profile.username) 
+          button Messages
