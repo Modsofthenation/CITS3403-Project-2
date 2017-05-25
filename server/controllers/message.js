@@ -37,7 +37,7 @@ module.exports.getMessages = function(req, res) {
 				user: req.user
 			});
 		} else {
-			res.render('messages', {messages: found, user: req.user});
+			res.render('messages', {messages: sortMessagesByDate(found), user: req.user});
 		}
 	});
 }
@@ -65,4 +65,11 @@ module.exports.messageCreator = function(req, res) {
 			}
 		}
 	);
+}
+
+function sortMessagesByDate(messages){
+	messages.sort(function(first, second) {
+		return ((first.timestamp.getTime() - second.timestamp.getTime()) * -1);
+	});
+	return messages;
 }
