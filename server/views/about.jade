@@ -36,5 +36,8 @@ block content
       | 					Black and White Faces Image. (2017). [image] Available at: http://i.amz.mshcdn.com/nJwvOXPBYSfTT9O_c09NTbe9A3M=/950x534/filters:quality(90)/2012%2F12%2F04%2F50%2Fappturnsonl.cII.jpg [Accessed 3 Apr. 2017].
       br
       br
-   h3 Underlying architecture:
+    h3 Underlying architecture:
       | The underlying architecture is based on the MEAN stack. All the underlying components are written in the same language which allows the whole application to be javascript based. The project required us to utilise the mean stack which itself is a lightweight and self contained while requiring minimal configuration. However if required it is can still be configured in quite a lot of detail. We utilise Mongo as the backend database which is used to store the users’ information. Mongo itself is a document database that is fast, scalable and everything’s JSON. Since schemas are not enforced in Mongo, Mongoose is an object relational modelling tool that Node provides. Node is the runtime environment.  Express is used as the underlying framework which handles the routing and session support. 
+    h3 Database design:
+      | The database consists of various tables/documents which contains the user information in a structured way. The messaging document contains the details of the user to which the message was sent and from which user the message came from. It also contains the date of when the message was sent alongside whether or not the message has been read or not. Finally it also stores the actual content of the message. The profile document contains the username which has to be unique alongside the person’s first name, middle name, last name, short bio, their interests, their age, gender, location described as in coordinate format. The user document contains the username, their password and their email. 
+   
