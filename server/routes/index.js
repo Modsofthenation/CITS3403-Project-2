@@ -8,36 +8,38 @@ router.get('/', function(req, res, next) {
 	res.render('index', { user: req.user });
 });
 
+//GET about page.
 router.get('/about', function(req, res, next) {
 	res.render('about', { user: req.user });
 });
 
-//Register new account
+//POST new user
 router.post('/register', function(req, res, next) {
 	ctrlUser.addUser(req, res);
 });
 
-//Registration page
+//GET registration page
 router.get('/register', function(req, res, next) {
 	res.render('register', { user: req.user });
 });
 
-//Login page
+//GET login page
 router.get('/login', function(req, res, next) {
 	res.render('login', { user: req.user });
 });
 
-//Login to site
+//POST login request
 router.post('/login', passport.authenticate('local'), function(req, res) {
 	res.redirect('/');
 });
 
-//Logout
+//GET logout
 router.get('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/');
 });
 
+//GET user settings page
 router.get('/user', function(req, res) {
 	if (!req.user)
 		res.redirect('/login');
@@ -45,6 +47,7 @@ router.get('/user', function(req, res) {
 		res.render('userSettings', { user: req.user });
 });
 
+//POST new user details
 router.post('/user', function(req,res) {
 	ctrlUser.updateUser(req, res);
 });
