@@ -86,6 +86,7 @@ function compareScoredProfiles(profile1, profile2) {
 }
 
 function intersect(a, b) {
+//https://stackoverflow.com/a/16227294
     var t;
     if (b.length > a.length) t = b, b = a, a = t; // indexOf to loop over shorter
     return a.filter(function (e) {

@@ -30,11 +30,19 @@ function validate() {
 	       validateInput(document.getElementById("country")) &&
 	       validateInput(document.getElementById("bio")) &&
 	       validateInput(document.getElementById("age")) &&
+	       checkAge(document.getElementById("age")) &&
 	       validateInput(document.getElementById("gender"))  &&
 	       checkInterests();
 }
 
-function checkForm() {
+function checkAge(age) {
+	age.style.border = "";
+	if (parseInt(age.value) < 18) {
+		document.getElementById("errorbox").innerHTML = "You must be at least 18 years old to register.";
+		age.style.border = "2px solid red";
+		return false;
+	}
+	return true;
 }
 
 function validateInput(input) {

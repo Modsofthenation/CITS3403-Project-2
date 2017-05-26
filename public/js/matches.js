@@ -37,11 +37,11 @@ function validate(){
 		maxage.style.border = "2px solid red";
 		errorbox.innerHTML = "Please enter a maximum age";
 		return false;
-	} else if (maxage.value < 18) {
+	} else if (parseInt(maxage.value) < 18) {
 		maxage.style.border = "2px solid red";
 		errorbox.innerHTML = "Maximum age cannot be lower than 18";
 		return false;
-	} else if (maxage.value < minage.value) {
+	} else if (parseInt(maxage.value) < parseInt(minage.value)) {
 		minage.style.border = "2px solid red";
 		maxage.style.border = "2px solid red";
 		errorbox.innerHTML = "Maximum age cannot be lower than minimum age";

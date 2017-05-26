@@ -57,6 +57,7 @@ module.exports.messageCreator = function(req, res) {
 					user: req.user
 				});
 			} else {
+				console.log(found);
 				if (found)
 					res.render('messageCreator', {destination: req.params.username, user: req.user});
 				else
