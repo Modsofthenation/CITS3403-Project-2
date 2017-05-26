@@ -5,11 +5,13 @@ var User = mongoose.model('User');
 
 
 module.exports.getMatches = function(req, res) {
-	//Redirect if not loggedi in
+	//Redirect if not logged in
 	if (!req.user) 
 		res.redirect('/login');
 
-	var find = {};
+	var find = {username: { $ne : req.user.username},
+                age: { $gte: req.body.minage, $lte: req.body.maxage} };
+
 	if (req.body.gender != 'both')
 		find.gender = req.body.gender;
 
