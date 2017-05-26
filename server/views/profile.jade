@@ -14,7 +14,7 @@ block content
       br
       br
       .innerTopBanner
-        h3 #{profile.firstname} #{profile.lastname}'s Profile
+        h3.center #{profile.firstname} #{profile.lastname}'s Profile
 
       //PlaceHolder -> Profile Image should be loaded here
       //img#profileImage(src='', width='200', height='200', alt='Your profile Image')
@@ -26,7 +26,6 @@ block content
       h3.center My Interests:
       each i in profile.interests
         p.myAccountP #{i}
-
 
       if(user && user.username == profile.username)
         a(href='/profile/edit') 

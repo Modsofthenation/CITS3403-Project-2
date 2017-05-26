@@ -19,7 +19,7 @@ h3.center{
 #content{
     background-color: #202120;
     width: 90%;
-    height: 900px;
+    min-height: 900px;
     margin: 0px auto;
     border: none;
     border-radius: 10px;
