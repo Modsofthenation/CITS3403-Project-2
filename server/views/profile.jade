@@ -30,11 +30,11 @@ block content
 
       if(user && user.username == profile.username)
         a(href='/profile/edit') 
-          button Edit Profile Settings
+          button Edit Profile
 
       br
       br
 
-      if(user)
+      if(user && profile.username != user.username)
         a(href='/message/' + profile.username) 
-          button Messages
+          button Message User
