@@ -58,6 +58,8 @@ function checkInterests() {
 			document.getElementById("errorbox").innerHTML = "Please fill in the red fields";
 			interests[i].style.border = "2px solid red";
 			valid = false;
+		} else {
+			interests[i].value = interests[i].value.toLowerCase();
 		}
 	}
 	return valid;
