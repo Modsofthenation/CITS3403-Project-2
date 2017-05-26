@@ -38,3 +38,16 @@ The application should include an HTML5 website with the following pages (or fun
   * Style - look and feel, usability 15%
   * Content - coherence, effectiveness 15%
   * Bonus marks - 5% per element
+  
+## Running the App
+The application requires that node be installed and is also dependent on the following npm packages: 
+ * express
+ * mongoose
+ * @google/maps
+ * passport
+ * passport-local
+ * passport-local-mongoose
+ * express-session
+With all these dependencies installed all you have to do is run the command 'npm start' from within the project's root directory.  
+
+
