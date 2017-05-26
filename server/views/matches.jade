@@ -22,3 +22,8 @@ block content
               p #{p.distance} Kilometres Away
               .profile
                 a(href='/profile/user/' + p.username) Visit Profile
+        if(matches.length < 1)
+          .matchContainer
+            p.title No Matches Found
+            p No matches found at this time. You can try increasing your search range, adjusting your age range or adding more   interests to your profile.
+            br

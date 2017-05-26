@@ -64,7 +64,7 @@ function sortByScore(user, profiles) {
 	//calculate all scores.
 	for(i=(profiles.length - 1); i > -1; i--) {
 		var score = calculateScore(user, profiles[i]);
-		if (score < 0 )
+		if (score <= 0 )
 			profiles.splice(i, 1);
 		else
 			profiles[i].score = score;
