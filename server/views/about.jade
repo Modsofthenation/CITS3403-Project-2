@@ -37,8 +37,19 @@ block content
       br
       br
     h3 Underlying architecture:
+    p.contentText
       | The underlying architecture is based on the MEAN stack. All the underlying components are written in the same language which allows the whole application to be javascript based. The project required us to utilise the mean stack which itself is a lightweight and self contained while requiring minimal configuration. However if required it is can still be configured in quite a lot of detail. We utilise Mongo as the backend database which is used to store the users’ information. Mongo itself is a document database that is fast, scalable and everything’s JSON. Since schemas are not enforced in Mongo, Mongoose is an object relational modelling tool that Node provides. Node is the runtime environment.  Express is used as the underlying framework which handles the routing and session support. 
+    p.contentText
+      | The project was written in an MVC style, meaning all the logic was seperated into models, views and controllers. Models are the objects that define the databse's schemas and are interpreted and enforced by mongoose. The views refers to the jade templates which allow html pages to be dynamically created by the server. Finally the controllers are assigned to different routes and implement the logic that interacts with the models and then passes that data back to the view.
+
     h3 Database design:
+    p.contentText
       | The database consists of various tables/documents which contains the user information in a structured way. The messaging document contains the details of the user to which the message was sent and from which user the message came from. It also contains the date of when the message was sent alongside whether or not the message has been read or not. Finally it also stores the actual content of the message. The profile document contains the username which has to be unique alongside the person’s first name, middle name, last name, short bio, their interests, their age, gender, location described as in coordinate format. The user document contains the username, their password and their email. 
     h3 Problems encountered:
+    p.contentText
       | During the development of backend of the website, there were a couple of difficulties that were experienced. Firstly the matching algorithm used a distance within parameter which means that it was required to calculate the distance of all the other potential matches to that person and see if they meet the specified threshold. We opted to use the Google maps api to calculated that distance. The second major problem we encounter was uploading and storing profile images. Unfortunately due to the time constraints of the project we were unable to find a working solution. 
+    h3 Testing and Validation:
+    p.contentText
+      | Our testing procedure involved us frequently running through the entire user experience as we built the app. This means we created many accounts with different details and location values, we sent messages between users, edited profiles and found matches. This procedure allowed us to identify bugs in the app and see any flaws in the user experience. By putting ourselves in the user's place we were able to organically improve the design of the app as shortcomings became apparent to us through our use of the app.
+    br
+  
