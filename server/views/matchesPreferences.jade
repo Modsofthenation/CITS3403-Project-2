@@ -1,0 +1,30 @@
+extends layout
+
+block head
+  title MatchMaker: Matches
+  link(type='text/css', rel='stylesheet', href='css/layout.css')
+  link(rel='stylesheet', href='/css/create_profile.css')
+  script(type='text/javascript', src='js/script.js')
+  script(type='text/javascript', src='js/matches.js')  
+
+block content
+  #content
+    #innerContent
+      .container
+        br
+        br
+        h3 Match Preferences
+        br
+        form(id="preferences", method="post")
+          label(for='distance') Search Range (KMs):
+          input(type='number', id='distance', name='distance')
+
+          label(for='gender') Preferred Gender(s) :
+          br
+          select(name='gender', id='gender')
+            option(value='', selected='selected') Please Choose...
+            option(value='male') Male
+            option(value='female') Female
+            option(value='both') Male and Female
+          input(type='submit', value="Find Matches", onclick="return validate()")
+          p(id='errorbox')

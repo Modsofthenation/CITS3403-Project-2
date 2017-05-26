@@ -1,0 +1,22 @@
+extends layout
+
+block head
+  title MatchMaker: Matches
+  link(type='text/css', rel='stylesheet', href='css/layout.css')
+  link(rel='stylesheet', href='/css/create_profile.css')
+  script(type='text/javascript', src='js/script.js')
+
+block content
+  #content
+    #innerContent
+      .container
+        br
+        br
+        h3 Matches
+        br
+        if (matches)
+          each p in matches
+            .matchContainer
+              a(href='/profile/user/' + p.username) #{p.firstname} #{p.lastname} Score: #{p.score}
+        else
+          No matches found.
