@@ -51,6 +51,33 @@ module.exports.editProfile = function(req, res) {
 	);
 }
 
+module.exports.myProfile = function(req, res) {
+	//Redirect user to login if logged out
+	if (!req.user)
+		res.redirect('/login');
+
+	//Find my profile
+	Profile.findOne({username: req.user.username}).exec(
+		function(err, found) {
+			if (err) {
+				console.log(err);
+				res.render('error', {
+					message:err.message,
+					error:err,
+					user: req.user
+				});
+			} else {
+				//if found then show profile, else go to profile editor
+				if (found)
+					res.render('profile', { profile: found, user: req.user});
+				else
+					res.redirect('/profile/edit');
+			}
+		}
+	);
+
+}
+
 module.exports.addProfile = function(req, res) {
 	//Redirect if not logged in 
 	if (!req.user)

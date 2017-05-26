@@ -4,11 +4,7 @@ var ctrlProfile = require('../controllers/profile.js');
 
 router.get('/', function(req, res, next) {
 	//If logged in show your profile, else go to login page
-	if (req.user) {
-		res.redirect('/profile/user/' + req.user.username);
-	} else {
-		res.redirect('/login');
-	}
+	ctrlProfile.myProfile(req, res);
 })
 
 router.get('/user/:username', function(req, res, next) {
