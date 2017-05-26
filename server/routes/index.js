@@ -52,4 +52,9 @@ router.post('/user', function(req,res) {
 	ctrlUser.updateUser(req, res);
 });
 
+//POST a user deletion request
+router.post('/delete', function(req, res) {
+	ctrlUser.deleteUser(req, res);
+});
+
 module.exports = router;

@@ -97,3 +97,44 @@ function updateEmail(req, res) {
 	});
 }
 
+module.exports.deleteUser = function(req, res) {
+	//Go to login page if not logged in
+	if (!req.user)
+		res.redirect("/login");
+	//Go to user settings if wrong username
+	if (req.user.username != req.body.username)
+		res.redirect("/user");
+	//Delete the user account
+	User.findOne({username: req.body.username}).exec(function(err, found) {
+		if (err) {
+			res.render('error', {
+				message:err.message,
+				error: err
+			});	
+		} else {
+			if (found) {
+				req.logout();
+				found.remove();
+				//Now delete the user's profile.
+				deleteUserProfile(req, res);
+			}
+		}
+	});
+}
+
+function deleteUserProfile(req, res) {
+	Profile.findOne({username: req.body.username}).exec(function(err, found) {
+		if (err) {
+			res.render('error', {
+				message:err.message,
+				error: err
+			});	
+		} else {
+			if(found) {
+				found.remove();
+			}
+			//Redirect to home page.
+			res.redirect("/");
+		}
+	});
+}

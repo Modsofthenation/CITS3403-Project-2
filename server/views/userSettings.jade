@@ -29,3 +29,7 @@ block content
             p(id='errobox') #{error}
           else
             p(id='errorbox')
+
+        form(action="/delete", method="post")
+          input(type='hidden', name='username', value=user.username)
+          input(id="delete", type='submit', value="Delete Account")
