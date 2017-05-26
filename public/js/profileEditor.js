@@ -25,6 +25,9 @@ function validate() {
 	document.getElementById("errorbox").innerHTML = "";
 	return validateInput(document.getElementById("firstname")) &&
 	       validateInput(document.getElementById("lastname")) &&
+	       validateInput(document.getElementById("suburb")) &&
+	       validateInput(document.getElementById("state")) &&
+	       validateInput(document.getElementById("country")) &&
 	       validateInput(document.getElementById("bio")) &&
 	       validateInput(document.getElementById("age")) &&
 	       validateInput(document.getElementById("gender"))  &&
@@ -35,6 +38,7 @@ function checkForm() {
 }
 
 function validateInput(input) {
+	var valid = true;
 	input.style.border = "";
 	if (input.value == "") {
 		document.getElementById("errorbox").innerHTML = "Please fill in the red fields";
@@ -42,7 +46,7 @@ function validateInput(input) {
 		input.focus;
 		input.style.border = "2px solid red";
 	}
-	return true;
+	return valid;
 }
 
 function checkInterests() {

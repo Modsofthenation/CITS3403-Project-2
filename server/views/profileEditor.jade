@@ -36,6 +36,16 @@ block content
           else
             input(type='text', id='lastname', name='lastname')
 
+          label(for='suburb') Location (Suburb):
+          input(type='text', id='suburb', name='suburb')
+
+          label(for='state') Location (State/Province):
+          input(type='text', id='state', name='state')
+
+          label(for='country') Location (Country):
+          input(type='text', id='country', name='country')
+
+
           label(for='bio') About Me (Max. 2000 Characters):
           br
           textarea(form='profile', id='bio', name='bio', maxlength=2000, rows=9)
@@ -72,5 +82,8 @@ block content
 
           input(type='button', value="Add Interest", onclick='addInterest()')
           input(type='button', value="Remove Interest", onclick='removeInterest()')
-          input(type='submit', onclick='return validate()', value='Submit')
-          p(id='errorbox')
+          input(type='submit', value='Submit', onclick="return validate()")
+          if (error)
+            p(id='errorbox') #{error}
+          else
+            p(id='errorbox')

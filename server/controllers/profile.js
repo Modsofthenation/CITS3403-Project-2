@@ -52,8 +52,10 @@ module.exports.editProfile = function(req, res) {
 }
 
 module.exports.addProfile = function(req, res) {
+	//Redirect if not logged in 
 	if (!req.user)
 		res.redirect('/');
+
 	//Delete profile if exists
 	Profile.findOne({username: req.user.username}).exec(
 		function(err, found) {
@@ -68,37 +70,70 @@ module.exports.addProfile = function(req, res) {
 				if (found) {
 					found.remove();
 				}
-				addProfile();
+				//Calculate lattitude and longitude values
+				geocode(req, res);
 			}
 		}
 	);
+}
 
-	var addProfile = function() {
-		//Construct profile model
-		var newProfile = new Profile ({
-				username: req.user.username,
-				firstname:  req.body.firstname,
-				middlename: req.body.middlename,
-				lastname:   req.body.lastname,
-				bio: req.body.bio,
-				//TODO: Handle interests
-				interests:   req.body.interests,
-				age:        req.body.age,
-				gender:     req.body.gender
-		});
-		console.log(newProfile);
-		newProfile.save(function(err, data){
-			if(err) {
-				console.log(err);
-				res.status(500);
-				res.render('error', {
-					message:err.message,
-					error:err
-				});
-			} else {
-				console.log(data, 'saved');
-				res.redirect("/profile/");
-			}
-		});
+function geocode(req, res) {
+	var googleMapsClient = require('@google/maps').createClient({
+		key: 'AIzaSyBqrC5SwJqfHfy4ggs-50jcfE9uiyDt_l4'
+	});
+
+	googleMapsClient.geocode({
+		address: req.body.suburb + ', ' + req.body.state + ', ' + req.body.country
+	}, function(err, response) {
+		if (err) {
+			console.log(error);
+			res.status(500);
+			res.render('error', {
+				message:err.message,
+				error:err
+			});
+		} else {
+			addProfileCallback(req, res, response);
+		}
+	});
+}
+
+function addProfileCallback(req, res, geocodeResponse) {
+	var newProfile = new Profile ({
+			username: req.user.username,
+			firstname:  req.body.firstname,
+			middlename: req.body.middlename,
+			lastname:   req.body.lastname,
+			bio: req.body.bio,
+			interests:   req.body.interests,
+			age:        req.body.age,
+			gender:     req.body.gender,
+	});
+
+	if (geocodeResponse.json.status != 'OK') {
+		returnLocationError(req, res, newProfile);
+		return;
+	} else {
+		newProfile.lattitude = geocodeResponse.json.results[0].geometry.location.lat;
+		newProfile.longitude = geocodeResponse.json.results[0].geometry.location.lng;
 	}
+
+	newProfile.save(function(err, data){
+		if(err) {
+			console.log(err);
+			res.status(500);
+			res.render('error', {
+				message:err.message,
+				error:err
+			});
+		} else {
+			console.log(data, 'saved');
+			res.redirect("/profile/");
+		}
+	});	
+}
+
+function returnLocationError(req, res, profile) {
+	var error = {message: "Profile not found"};
+	res.render('profileEditor', {'user': req.user, 'error' : error, 'profile': profile});
 }
