@@ -3,7 +3,7 @@ extends layout
 block head
   title MatchMaker: Matches
   link(type='text/css', rel='stylesheet', href='css/layout.css')
-  link(rel='stylesheet', href='/css/create_profile.css')
+  link(rel='stylesheet', href='/css/matches.css')
   script(type='text/javascript', src='js/script.js')
 
 block content
@@ -17,6 +17,7 @@ block content
         if (matches)
           each p in matches
             .matchContainer
-              a(href='/profile/user/' + p.username) #{p.firstname} #{p.lastname} Score: #{p.score}
-        else
-          No matches found.
+              p.title #{p.firstname} #{p.lastname}
+              p #{p.score} Shared Interests
+              .profile
+                a(href='/profile/user/' + p.username) Visit Profile
