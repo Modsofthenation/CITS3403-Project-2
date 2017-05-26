@@ -16,9 +16,6 @@ block content
       .innerTopBanner
         h3.center #{profile.firstname} #{profile.lastname}'s Profile
 
-      //PlaceHolder -> Profile Image should be loaded here
-      //img#profileImage(src='', width='200', height='200', alt='Your profile Image')
-      
       br
 
       h3.center About Me:
@@ -30,9 +27,6 @@ block content
       if(user && user.username == profile.username)
         a(href='/profile/edit') 
           button Edit Profile
-
-      br
-      br
 
       if(user && profile.username != user.username)
         a(href='/message/' + profile.username) 
