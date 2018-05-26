@@ -1,3 +1,4 @@
+![picture alt](http://static.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/uwacrest-blue.svg)
 # CITS3403-Project-2
 
 # Stage 2: Backend functionality
